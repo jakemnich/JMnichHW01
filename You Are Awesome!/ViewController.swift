@@ -12,8 +12,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageButton: UIButton!
+    @IBOutlet weak var awesomeImage: UIImageView!
     
     var lastIndex = -1
+    var lastImage = -1
+    let numOfImages = 10
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +41,26 @@ class ViewController: UIViewController {
                         "You Are Da Bomb!"]
         
         var randomIndex: Int = Int(arc4random_uniform(UInt32(messages.count)))
+        var randomImage: Int = Int(arc4random_uniform(UInt32(numOfImages)))
         
         while randomIndex == lastIndex {
-            print("Before condition: my new random index is \(randomIndex) and my last index is \(lastIndex)")
             randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
-            print("After condition: my new random index is \(randomIndex) and my last index is \(lastIndex)")
+           
         }
-        
         messageLabel.text = messages[randomIndex]
-        
         lastIndex = randomIndex
+        
+        while randomImage == lastImage {
+            randomImage = Int(arc4random_uniform(UInt32(numOfImages)))
+            
+        }
+        awesomeImage.isHidden = false
+        awesomeImage.image = UIImage(named: "image" + String(randomImage))
+        lastImage = randomImage
+        
+        
+        
+        
         
         
         /*
