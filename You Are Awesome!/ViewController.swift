@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     var awesomePlayer = AVAudioPlayer()
     
+    var lastSound = -1
     var lastIndex = -1
     var lastImage = -1
     let numOfImages = 10
@@ -33,11 +34,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func playSound() {
-        var soundName = "sound" + String(arc4random_uniform(UInt32(numOfSounds)))
-        
-        
-        
+    func playSound(soundName: String) {
+
         if let sound = NSDataAsset(name: soundName) {
             do {
                 try awesomePlayer = AVAudioPlayer(data: sound.data)
@@ -51,6 +49,19 @@ class ViewController: UIViewController {
         
     }
     
+    func nonRepeatedRandom(last: inout Int, range: Int) -> Int {
+        
+        var random: Int = Int(arc4random_uniform(UInt32(range)))
+        
+        while random == last {
+            random = Int(arc4random_uniform(UInt32(range)))
+            
+        }
+        last = random
+        
+        return random
+        
+    }
     
     @IBAction func messageButtonPressed(_ sender: UIButton) {
        
@@ -63,25 +74,19 @@ class ViewController: UIViewController {
                         "I Can't Wait to Use Your App!",
                         "You Are Da Bomb!"]
         
-        var randomIndex: Int = Int(arc4random_uniform(UInt32(messages.count)))
-        var randomImage: Int = Int(arc4random_uniform(UInt32(numOfImages)))
+        var random: Int
         
-        while randomIndex == lastIndex {
-            randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
-           
-        }
-        messageLabel.text = messages[randomIndex]
-        lastIndex = randomIndex
+        random = nonRepeatedRandom(last: &lastIndex, range: messages.count)
+        messageLabel.text = messages[random]
         
-        while randomImage == lastImage {
-            randomImage = Int(arc4random_uniform(UInt32(numOfImages)))
-            
-        }
         awesomeImage.isHidden = false
-        awesomeImage.image = UIImage(named: "image" + String(randomImage))
-        lastImage = randomImage
+        random = nonRepeatedRandom(last: &lastImage, range: numOfImages)
+        awesomeImage.image = UIImage(named: "image" + String(random))
         
-        playSound()
+        random = nonRepeatedRandom(last: &lastSound, range: numOfSounds)
+        playSound(soundName: "sound" + String(random))
+        
+
         
         
         
