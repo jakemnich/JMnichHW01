@@ -71,7 +71,10 @@ class ViewController: UIViewController {
     
     @IBAction func soundSwitchPressed(_ sender: UISwitch) {
         if soundSwitch.isOn == false {
-            awesomePlayer.stop()
+            if lastSound != -1 {
+                awesomePlayer.stop()
+            }
+            
         }
     }
    

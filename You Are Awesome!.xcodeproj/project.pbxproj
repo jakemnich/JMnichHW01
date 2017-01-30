@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					EC5998121E31A52C002400A3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 552S6RF9W3;
 						ProvisioningStyle = Automatic;
 					};
 					EC5998261E31A52D002400A3 = {
@@ -339,7 +340,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 552S6RF9W3;
 				INFOPLIST_FILE = "You Are Awesome!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jmnich.You-Are-Awesome-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -351,7 +354,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 552S6RF9W3;
 				INFOPLIST_FILE = "You Are Awesome!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jmnich.You-Are-Awesome-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -406,6 +411,7 @@
 				EC5998321E31A52D002400A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC5998331E31A52D002400A3 /* Build configuration list for PBXNativeTarget "You Are Awesome!Tests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +420,7 @@
 				EC5998351E31A52D002400A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
